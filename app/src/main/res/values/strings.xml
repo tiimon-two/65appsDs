@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Ds</string>
+    <string name="details_fragment_name">Детали контакта</string>
+    <string name="contact_list_fragment_name">Список контактов</string>
+    <string name="contact_name">Вася</string>
+    <string name="contact_phone">+79293939494</string>
+    <string name="avatar_description">Contact Avatar</string>
+    <string name="contact_phone_two">+79838383834</string>
+    <string name="contact_email">email@.com</string>
+    <string name="contact_email_two">email2@.com</string>
+    <string name="contact_description">Единственный контакт(пока)</string>
 </resources>
