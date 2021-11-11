@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent">
+
+    <ImageView
+        android:id="@+id/contactImage"
+        android:layout_width="80dp"
+        android:layout_height="86dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:contentDescription="@string/avatar_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user" />
+
+    <TextView
+        android:id="@+id/contactName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/contactImage"
+        android:layout_alignBottom="@+id/contactImage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@+id/contactImage"
+        android:background="@color/gray"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/contactImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/contactNumberTwo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactNumberOne"
+        android:layout_alignStart="@+id/contactImage"
+        android:layout_alignEnd="@+id/contactNumberOne"
+        android:layout_marginTop="20dp"
+        android:background="@color/gray"
+        android:text="@string/contact_phone_two"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/contactNumberOne"
+        app:layout_constraintStart_toStartOf="@+id/contactNumberOne"
+        app:layout_constraintTop_toBottomOf="@+id/contactNumberOne" />
+
+    <TextView
+        android:id="@+id/emailOne"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactNumberTwo"
+        android:layout_alignStart="@+id/contactImage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/gray"
+        android:text="@string/contact_email"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/contactNumberTwo"
+        app:layout_constraintStart_toStartOf="@+id/contactNumberTwo"
+        app:layout_constraintTop_toBottomOf="@+id/contactNumberTwo" />
+
+    <TextView
+        android:id="@+id/emailTwo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailOne"
+        android:layout_alignStart="@+id/contactImage"
+        android:layout_alignEnd="@+id/emailOne"
+        android:layout_marginTop="20dp"
+        android:background="@color/gray"
+        android:text="@string/contact_email_two"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/emailOne"
+        app:layout_constraintStart_toStartOf="@+id/emailOne"
+        app:layout_constraintTop_toBottomOf="@+id/emailOne" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/emailTwo"
+        android:layout_alignStart="@+id/emailTwo"
+        android:layout_alignEnd="@+id/contactName"
+        android:layout_marginTop="36dp"
+        android:background="@color/gray"
+        android:scrollbars="vertical"
+        android:text="@string/contact_description"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/emailTwo"
+        app:layout_constraintStart_toStartOf="@+id/emailTwo"
+        app:layout_constraintTop_toBottomOf="@+id/emailTwo" />
+
+    <TextView
+        android:id="@+id/contactNumberOne"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactImage"
+        android:layout_alignStart="@+id/contactImage"
+        android:layout_alignEnd="@+id/contactName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/contactName"
+        app:layout_constraintStart_toStartOf="@+id/contactImage"
+        app:layout_constraintTop_toBottomOf="@+id/contactName" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
