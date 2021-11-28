@@ -1,20 +1,26 @@
 package com.gmail.aitama90p.ds
 
+import android.content.Context
 import android.os.Bundle
-import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LifecycleOwner
 import com.gmail.aitama90p.ds.databinding.ContactDetailsBinding
+import java.lang.ref.WeakReference
 
 class ContactDetailsFragment : Fragment() {
-    private val dataModel: DataModel by activityViewModels()
     private var _binding: ContactDetailsBinding? = null
     private val binding get() = _binding!!
-    private var id: String = ""
+    private var contactListService: ContactListService.ContactListServiceInterface? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        if(context is ContactListService.ContactListServiceInterface) {
+            contactListService = context
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,19 +35,8 @@ class ContactDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataModel.idMessage.observe(activity as LifecycleOwner,{
-            id = it
-        })
-
-        dataModel.nameMessage.observe(activity as LifecycleOwner,{
-            binding.contactName.text = it
-        })
-
-        dataModel.phoneMessage.observe(activity as LifecycleOwner,{
-            binding.contactNumberOne.text = it
-        })
-
         requireActivity().title = requireActivity().getString(R.string.details_fragment_name)
+        contactListService?.getService()?.showContactDetails(WeakReference(this))
     }
 
     override fun onDestroyView() {
@@ -49,7 +44,25 @@ class ContactDetailsFragment : Fragment() {
         _binding = null
     }
 
+    override fun onDetach() {
+        contactListService = null
+        super.onDetach()
+    }
+
     companion object {
         fun newInstance() = ContactDetailsFragment()
+    }
+
+    fun setData(data: List<Contact>) {
+        binding.apply {
+            var contactData = data.first()
+            contactName.text = contactData.name
+            contactNumberOne.text = contactData.phone
+            contactNumberTwo.text = contactData.phoneTwo
+            contactImage.setImageResource(contactData.photo)
+            emailOne.text = contactData.email
+            emailTwo.text = contactData.emailTwo
+            description.text = contactData.description
+        }
     }
 }

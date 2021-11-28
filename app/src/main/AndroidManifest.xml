@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <service
+            android:name=".ContactListService"
+            android:exported="true"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
